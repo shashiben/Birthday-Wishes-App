@@ -46,6 +46,7 @@ class BallonView extends GetView<HomeController> {
                     yDistance: -Get.width / 2,
                     yDuration: Duration(seconds: 2),
                     child: Lottie.asset('assets/lottie/cake_card.json',
+                        alignment: Alignment.center,
                         controller: controller.cakeCardLottieController,
                         onLoaded: (composition) {
                       controller.cakeCardLottieController.duration =
@@ -66,20 +67,24 @@ class BallonView extends GetView<HomeController> {
                           ? Container(
                               margin: EdgeInsets.only(bottom: 20)
                                   .copyWith(left: 20, right: 20),
-                              child: MaterialButton(
-                                  padding: EdgeInsets.symmetric(vertical: 5),
-                                  color: Colors.orange,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8)),
-                                  onPressed: controller.navigateToNext,
-                                  child: Container(
-                                      height: 40,
-                                      child: Center(
-                                          child: Text(
-                                        "Let's Bake Cake",
-                                        style: TextStyle(
-                                            fontSize: 18, color: Colors.white),
-                                      )))),
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(maxWidth: 400),
+                                child: MaterialButton(
+                                    padding: EdgeInsets.symmetric(vertical: 5),
+                                    color: Colors.orange,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8)),
+                                    onPressed: controller.navigateToNext,
+                                    child: Container(
+                                        height: 40,
+                                        child: Center(
+                                            child: Text(
+                                          "Let's Bake Cake",
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.white),
+                                        )))),
+                              ),
                             )
                           : AnimatedTextKit(
                               onFinished: () {
@@ -94,7 +99,7 @@ class BallonView extends GetView<HomeController> {
                                   textStyle: TextStyle(
                                       fontSize: 50.0, fontFamily: 'Horizon'),
                                   textAlign: TextAlign.center,
-                                  speed: Duration(milliseconds: 500),
+                                  speed: Duration(seconds: 001),
                                   colors: [
                                     Colors.purple,
                                     Colors.blue,

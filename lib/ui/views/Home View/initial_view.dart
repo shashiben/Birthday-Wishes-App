@@ -14,7 +14,9 @@ class InitialHomeView extends GetView<HomeController> {
       child: GestureDetector(
         onTap: controller.startBulbLottieAnimation,
         child: Lottie.asset('assets/lottie/bulb.json',
-            repeat: false, controller: controller.lightBulbLottieController,
+            alignment: Alignment.center,
+            repeat: false,
+            controller: controller.lightBulbLottieController,
             onLoaded: (composition) {
           controller.lightBulbLottieController.duration = composition.duration;
         }),

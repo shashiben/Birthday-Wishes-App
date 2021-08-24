@@ -1,6 +1,7 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:suprise/ui/views/Cake%20View/cake_screen.dart';
 
 class HomeController extends GetxController with SingleGetTickerProviderMixin {
   late final AnimationController cakeCardLottieController =
@@ -61,5 +62,7 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
     });
   }
 
-  navigateToNext() {}
+  navigateToNext() {
+    Get.to(() => CakeScreen());
+  }
 }

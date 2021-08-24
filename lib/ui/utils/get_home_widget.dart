@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 import 'package:suprise/ui/views/Home%20View/ballon_view.dart';
 import 'package:suprise/ui/views/Home%20View/initial_view.dart';
 
