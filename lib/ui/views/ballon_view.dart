@@ -4,6 +4,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:suprise/app/configs.dart';
 import 'package:suprise/core/controllers/home_controller.dart';
 import 'package:suprise/ui/animations/fade_animation.dart';
@@ -43,13 +44,18 @@ class BallonView extends GetView<HomeController> {
                   xDistance: 0,
                   yDistance: -Get.width / 2,
                   yDuration: Duration(seconds: 2),
-                  child: Image.asset('assets/images/happy_birthday.png')),
+                  child: Lottie.asset('assets/lottie/cake_card.json',
+                      controller: controller.cakeCardLottieController,
+                      onLoaded: (composition) {
+                    controller.cakeCardLottieController.duration =
+                        composition.duration;
+                  }, repeat: false)),
             ),
             Container(
               width: Get.width,
               height: Get.height,
               child: FadeAnimation(
-                  delay: 5.2,
+                  delay: 26,
                   xDistance: 0,
                   yDistance: Get.width / 2,
                   yDuration: Duration(seconds: 2),
@@ -86,7 +92,7 @@ class BallonView extends GetView<HomeController> {
                 child: ConfettiWidget(
                   confettiController: controller.firstConfettiController,
                   blastDirection: 0,
-                  emissionFrequency: 0.6,
+                  emissionFrequency: 0.5,
                   minimumSize: const Size(5, 5),
                   maximumSize: const Size(30, 30),
                   numberOfParticles: 1,
@@ -102,7 +108,7 @@ class BallonView extends GetView<HomeController> {
                 child: ConfettiWidget(
                   confettiController: controller.secondConfettiController,
                   blastDirection: -pi,
-                  emissionFrequency: 0.6,
+                  emissionFrequency: 0.5,
                   minimumSize: const Size(5, 5),
                   maximumSize: const Size(30, 30),
                   numberOfParticles: 1,

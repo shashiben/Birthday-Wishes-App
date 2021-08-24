@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:suprise/ui/views/ballon_view.dart';
+import 'package:suprise/ui/views/initial_view.dart';
 
 import 'home_utils.dart';
 
-Widget getWidget(int index) {
+Widget getWidget(int index, bool isLottieLoaded) {
   return AnimatedContainer(
     curve: Curves.easeInToLinear,
-    duration: Duration(seconds: 1),
+    duration: Duration(seconds: 2),
     width: Get.width,
     height: Get.height,
     decoration: BoxDecoration(
-        gradient: index == 0
+        gradient: !isLottieLoaded
             ? LinearGradient(
                 colors: HomeUtils.darkGradient,
                 begin: Alignment.bottomRight,
@@ -25,7 +27,9 @@ Widget getWidget(int index) {
 Widget getChild(int index) {
   switch (index) {
     case 0:
-      return SizedBox();
+      return Container(
+        child: InitialView(index: index),
+      );
     case 1:
       return BallonView();
     default:

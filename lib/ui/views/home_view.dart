@@ -12,23 +12,8 @@ class HomeView extends GetView<HomeController> {
       appBar: AppBar(
         title: Text(controller.title),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Obx(
-        () => controller.index.value == 0
-            ? FloatingActionButton.extended(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12)),
-                label: Text("Start Event"),
-                onPressed: () {
-                  if (controller.index.value == 1)
-                    controller.changeIndex(0);
-                  else
-                    controller.changeIndex(1);
-                },
-              )
-            : SizedBox(),
-      ),
-      body: Obx(() => getWidget(controller.index.value)),
+      body: Obx(() => getWidget(
+          controller.index.value, controller.isBulbLottieLoaded.value)),
     );
   }
 }

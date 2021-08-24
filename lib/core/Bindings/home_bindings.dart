@@ -6,5 +6,8 @@ class HomeBinding extends Bindings {
   void dependencies() {
     printInfo(info: "Dependency Called");
     Get.put<HomeController>(HomeController(), permanent: true);
+    // Get.lazyPut<AnimationController>(
+    //   () => AnimationController(vsync: null),
+    // );
   }
 }
