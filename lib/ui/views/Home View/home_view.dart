@@ -8,12 +8,13 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(controller.title),
-      ),
-      body: Obx(() => getWidget(
-          controller.index.value, controller.isBulbLottieLoaded.value)),
+    return Obx(
+      () => Scaffold(
+          appBar: AppBar(
+            title: Text(controller.title.value),
+          ),
+          body: getWidget(
+              controller.index.value, controller.isBulbLottieLoaded.value)),
     );
   }
 }

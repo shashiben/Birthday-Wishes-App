@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:suprise/core/controllers/home_controller.dart';
 
-class InitialView extends GetView<HomeController> {
+class InitialHomeView extends GetView<HomeController> {
   final int index;
-  const InitialView({Key? key, required this.index}) : super(key: key);
+  const InitialHomeView({Key? key, required this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

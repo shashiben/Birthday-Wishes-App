@@ -15,7 +15,7 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
       ConfettiController(duration: const Duration(seconds: 4));
   RxInt index = 0.obs;
   RxBool isBulbLottieLoaded = false.obs;
-  final String title = 'Home View';
+  final RxString title = 'Click on bulb'.obs;
   @override
   void onReady() {
     print("ready home");
@@ -48,8 +48,18 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
   startBulbLottieAnimation() async {
     lightBulbLottieController.forward();
     await Future.delayed(Duration(milliseconds: 2500));
+    title.value = "";
     isBulbLottieLoaded.value = true;
     await Future.delayed(Duration(seconds: 2));
     changeIndex(1);
   }
+
+  RxBool showNextButton = false.obs;
+  showButton() {
+    Future.delayed(Duration(seconds: 3)).then((value) {
+      showNextButton.value = true;
+    });
+  }
+
+  navigateToNext() {}
 }

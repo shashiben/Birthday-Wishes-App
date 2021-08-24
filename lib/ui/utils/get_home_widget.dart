@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:suprise/ui/views/ballon_view.dart';
-import 'package:suprise/ui/views/initial_view.dart';
+import 'package:suprise/ui/views/Home%20View/ballon_view.dart';
+import 'package:suprise/ui/views/Home%20View/initial_view.dart';
 
 import 'home_utils.dart';
 
@@ -28,7 +28,7 @@ Widget getChild(int index) {
   switch (index) {
     case 0:
       return Container(
-        child: InitialView(index: index),
+        child: InitialHomeView(index: index),
       );
     case 1:
       return BallonView();
