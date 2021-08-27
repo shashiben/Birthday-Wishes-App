@@ -97,9 +97,10 @@ class BallonView extends GetView<HomeController> {
                                 ColorizeAnimatedText(
                                   'Happy Birthday\n${UserInfo.name}',
                                   textStyle: TextStyle(
-                                      fontSize: 50.0, fontFamily: 'Horizon'),
+                                      fontSize: 40.0,
+                                      fontFamily: SystemConfig.canterbury),
                                   textAlign: TextAlign.center,
-                                  speed: Duration(seconds: 001),
+                                  speed: Duration(milliseconds: 500),
                                   colors: [
                                     Colors.purple,
                                     Colors.blue,

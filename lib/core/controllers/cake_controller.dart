@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:suprise/ui/views/Rate%20View/rate_view.dart';
 
 class CakeController extends GetxController with SingleGetTickerProviderMixin {
   late AnimationController cakeBakeLottie = AnimationController(
@@ -25,7 +26,11 @@ class CakeController extends GetxController with SingleGetTickerProviderMixin {
     cakeReadyLottie.forward();
     await Future.delayed(
         Duration(seconds: cakeReadyLottie.duration?.inSeconds ?? 8));
-    changeIndex(2);
+    navigateToRate();
+  }
+
+  navigateToRate() {
+    Get.to(() => RateView(), opaque: true);
   }
 
   @override
