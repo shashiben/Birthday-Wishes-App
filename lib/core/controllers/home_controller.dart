@@ -47,8 +47,10 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
   }
 
   startBulbLottieAnimation() async {
+    title.value = "Turning on lights...";
     lightBulbLottieController.forward();
-    await Future.delayed(Duration(milliseconds: 2500));
+    await Future.delayed(
+        Duration(milliseconds: lightBulbLottieController.duration!.inSeconds));
     title.value = "";
     isBulbLottieLoaded.value = true;
     await Future.delayed(Duration(seconds: 2));
