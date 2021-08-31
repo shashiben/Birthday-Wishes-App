@@ -4,6 +4,9 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 import 'package:suprise/app/configs.dart';
 import 'package:suprise/ui/animations/fade_animation.dart';
+import 'package:suprise/ui/widgets/review_text_field.dart';
+import 'package:suprise/ui/widgets/review_text_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class RateController extends GetxController with SingleGetTickerProviderMixin {
   TextEditingController reviewController = TextEditingController();
@@ -24,88 +27,48 @@ class RateController extends GetxController with SingleGetTickerProviderMixin {
     super.onInit();
   }
 
-  RxDouble ratingValue = (5.0).obs;
+  shareTextonWhatsapp(String text) => launch(text);
 
   void addRating() {
-    children.add(FadeAnimation(
-      delay: 1,
-      yDistance: 50,
-      xDistance: 0,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15),
-        child: Column(
-          children: [
-            TextFormField(
-              controller: reviewController,
-              maxLines: 5,
-              decoration: InputDecoration(
-                  filled: true,
-                  hintText: "Please add a review",
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide.none)),
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: MaterialButton(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                color: Colors.orange,
+    children.add(ReviewTextFieldWidget(
+      reviewController: reviewController,
+      onPressed: () {
+        if (reviewController.text.isEmpty) {
+          if (Get.isSnackbarOpen ?? false) {
+          } else {
+            Get.showSnackbar(GetBar(
+              duration: Duration(seconds: 5),
+              title: "Please give a review",
+              message: "It just takes only a minute😬",
+              icon: Icon(FlutterIcons.sad_cry_faw5, color: Colors.white),
+            ));
+          }
+        } else {
+          children.removeAt(1);
+          children.add(ReviewTextWidget(review: reviewController.text));
+          children.add(FadeAnimation(
+            delay: 2,
+            child: ListTile(
+              contentPadding: EdgeInsets.zero,
+              trailing: MaterialButton(
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8)),
-                child: Text(
-                  "Submit",
-                  style: TextStyle(color: Colors.white),
+                    borderRadius: BorderRadius.circular(8),
+                    side: BorderSide(color: Colors.orange)),
+                child: Icon(
+                  FlutterIcons.share_2_fea,
+                  color: Colors.orange,
                 ),
-                onPressed: () {
-                  if (reviewController.text.isEmpty) {
-                    Get.showSnackbar(GetBar(
-                      title: "Please give a review",
-                      message: "Lorem ipsum are ho",
-                      icon:
-                          Icon(FlutterIcons.sad_cry_faw5, color: Colors.white),
-                    ));
-                  } else {
-                    children.removeAt(1);
-                    children.add(Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15),
-                      child: RichText(
-                          text: TextSpan(
-                              text: "Thanks for the review",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontFamily: SystemConfig.sourceSansRegular,
-                              ),
-                              children: [
-                            TextSpan(
-                                text: "   “ ",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    fontStyle: FontStyle.italic,
-                                    color: Colors.black)),
-                            TextSpan(
-                                text: reviewController.text,
-                                style: TextStyle(
-                                    fontFamily: SystemConfig.sourceSansItalic,
-                                    fontStyle: FontStyle.italic,
-                                    color: Colors.black)),
-                            TextSpan(
-                                text: " ”   ",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    fontStyle: FontStyle.italic,
-                                    color: Colors.black))
-                          ])),
-                    ));
-                  }
-                },
+                onPressed: () => shareTextonWhatsapp(
+                    UserInfo.getWhatsAppText(reviewController.text)),
               ),
-            )
-          ],
-        ),
-      ),
+              subtitle: Text("So that shashi can feel happy"),
+              title: Text("Share on whatsapp"),
+            ),
+            xDistance: 0,
+            yDistance: 0,
+          ));
+        }
+      },
     ));
   }
 }
