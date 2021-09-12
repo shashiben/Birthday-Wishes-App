@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       transitionDuration: Get.defaultTransitionDuration,
       title: 'Suprise',
       getPages: AppPages.routes,
-      initialRoute: Routes.CAROUSELVIEW,
+      initialRoute: Routes.CAKEVIEW,
       theme: themeData,
     );
   }

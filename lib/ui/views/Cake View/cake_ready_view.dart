@@ -16,7 +16,6 @@ class CakeReadyView extends GetView<CakeController> {
             repeat: false,
             controller: controller.cakeReadyLottie, onLoaded: (composition) {
           controller.cakeReadyLottie.duration = composition.duration;
-          print("Duration is:${composition.duration}");
           controller.actionAfterCakeReady();
         }),
       ),
