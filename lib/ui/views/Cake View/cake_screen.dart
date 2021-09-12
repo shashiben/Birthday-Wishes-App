@@ -31,9 +31,6 @@ class CakeScreen extends GetView<CakeController> {
                     )),
               )
             : SizedBox(),
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-        ),
         body: Container(
           width: Get.width,
           height: Get.height,

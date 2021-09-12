@@ -26,17 +26,17 @@ class CakeController extends GetxController with SingleGetTickerProviderMixin {
 
   actionAfterCakeReady() async {
     cakeReadyLottie.forward();
-    await Future.delayed(Duration(milliseconds: 4200));
+    await Future.delayed(Duration(milliseconds: 4750));
     cakeReadyLottie.stop();
     showBlowFloatButton.value = true;
   }
 
   resumeCakeBlowAction() async {
-    showBlowFloatButton.value=false;
+    showBlowFloatButton.value = false;
     cakeReadyLottie.forward();
     await Future.delayed(Duration(
         milliseconds:
-            ((cakeReadyLottie.duration?.inMilliseconds ?? 8000) - 4200)));
+            ((cakeReadyLottie.duration?.inMilliseconds ?? 8000) - 4750)));
     navigateToRate();
   }
 
