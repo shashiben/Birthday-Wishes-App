@@ -23,7 +23,7 @@ class ReviewTextFieldWidget extends StatelessWidget {
               maxLines: 5,
               decoration: InputDecoration(
                   filled: true,
-                  hintText: "Please add a review",
+                  hintText: "Comment...",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                       borderSide: BorderSide.none)),
@@ -39,7 +39,7 @@ class ReviewTextFieldWidget extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8)),
                 child: Text(
-                  "Submit",
+                  "Share",
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () => onPressed(),
