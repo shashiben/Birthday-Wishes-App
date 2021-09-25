@@ -1,5 +1,5 @@
 mixin UserInfo {
-  static const String name = 'Lucy Heartfilia';
+  static const String name = 'Noelle';
   static String getWhatsAppText(String message) {
     return "https://wa.me/+917997217156?text=$message";
   }

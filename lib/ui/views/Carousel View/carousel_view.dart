@@ -136,8 +136,8 @@ class _CarouselViewState extends State<CarouselView> {
                   ),
                   FadeAnimation(
                     delay: 1,
-                    xDistance: 0,
-                    yDistance: 50,
+                    xDistance: -50,
+                    yDistance: 0,
                     child: Text(
                       titles.elementAt(currentPage),
                       style: Theme.of(context)
