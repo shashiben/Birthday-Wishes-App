@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Suprise',
       home: HomeView(),
+      debugShowCheckedModeBanner: false,
       theme: themeData,
     );
   }

@@ -1,16 +1,41 @@
-# suprise
 
-A new Flutter project.
+# Birthday Wish App
 
-## Getting Started
+An application to suprise your loved one's or your friends.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Tech Stack
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+**Framework:** Flutter
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**Packages:** Lottie, Animated Text Kit, Confetti, Url Launcher
+
+  
+## Demo
+
+[Live Demo](https://drive.google.com/file/d/1CjCu0PSMs1RpGOH7MLqXLz25f5G4UxvO/view?usp=sharing)
+
+
+  
+## Installation
+
+Clone the project
+
+```
+ Update the configs file
+```
+    
+Run commands
+
+```
+flutter pub get
+flutter build apk --release --split-per-abi
+```
+## Features
+
+- Blowing Candles
+- Carousel to show memories
+- Greeting Card
+- Share comment on whatsapp
+
+  

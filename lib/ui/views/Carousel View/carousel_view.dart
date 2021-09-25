@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:suprise/app/configs.dart';
 import 'package:suprise/ui/animations/fade_animation.dart';
 import 'package:suprise/ui/views/Rate%20View/rate_view.dart';
 
@@ -35,25 +36,6 @@ class _CarouselViewState extends State<CarouselView> {
         context, MaterialPageRoute(builder: (context) => RateView()));
   }
 
-  List<String> imagesList = [
-    "assets/images/1.jpeg",
-    "assets/images/2.jpeg",
-    "assets/images/3.jpeg",
-    "assets/images/4.jpeg",
-  ];
-  List<String> titles = [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-  ];
-  List<String> description = [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud "
-  ];
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -80,7 +62,7 @@ class _CarouselViewState extends State<CarouselView> {
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(imagesList[currentPage]),
+                  image: AssetImage(UserInfo.imagesList[currentPage]),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -97,7 +79,7 @@ class _CarouselViewState extends State<CarouselView> {
           ),
           PageView.builder(
             controller: pageController,
-            itemCount: imagesList.length,
+            itemCount: UserInfo.imagesList.length,
             physics: BouncingScrollPhysics(),
             onPageChanged: (int page) {
               changePageValue(page);
@@ -112,7 +94,7 @@ class _CarouselViewState extends State<CarouselView> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(32),
                       child: Image.asset(
-                        imagesList[index],
+                        UserInfo.imagesList[index],
                         height: size.height * 0.6,
                         alignment: Alignment(-offset.abs() + currentPage, 0),
                         width: size.width * 0.8,
@@ -139,7 +121,7 @@ class _CarouselViewState extends State<CarouselView> {
                     xDistance: -50,
                     yDistance: 0,
                     child: Text(
-                      titles.elementAt(currentPage),
+                      UserInfo.titles.elementAt(currentPage),
                       style: Theme.of(context)
                           .textTheme
                           .headline6!
@@ -154,7 +136,7 @@ class _CarouselViewState extends State<CarouselView> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 15),
                       child: Text(
-                        description.elementAt(currentPage),
+                        UserInfo.description.elementAt(currentPage),
                         style: Theme.of(context)
                             .textTheme
                             .bodyText1!
