@@ -37,14 +37,14 @@ class _AnimatedBalloonState extends State<AnimatedBalloon>
     _animationFloatUp = Tween(begin: _balloonBottomLocation, end: 0.0).animate(
       CurvedAnimation(
         parent: _controller!,
-        curve: Interval(0.0, 1.0, curve: Curves.fastOutSlowIn),
+        curve: const Interval(0.0, 1.0, curve: Curves.fastOutSlowIn),
       ),
     );
 
     _animationGrowSize = Tween(begin: 50.0, end: _balloonWidth).animate(
       CurvedAnimation(
         parent: _controller!,
-        curve: Interval(0.0, 0.75, curve: Curves.elasticInOut),
+        curve: const Interval(0.0, 0.75, curve: Curves.elasticInOut),
       ),
     );
 

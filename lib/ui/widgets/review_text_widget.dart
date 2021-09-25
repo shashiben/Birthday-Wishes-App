@@ -12,12 +12,12 @@ class ReviewTextWidget extends StatelessWidget {
       child: RichText(
           text: TextSpan(
               text: "Thanks for the review",
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontFamily: SystemConfig.sourceSansRegular,
               ),
               children: [
-            TextSpan(
+            const TextSpan(
                 text: "   “ ",
                 style: TextStyle(
                     fontSize: 20,
@@ -25,13 +25,13 @@ class ReviewTextWidget extends StatelessWidget {
                     color: Colors.black)),
             TextSpan(
                 text: review,
-                style: TextStyle(
+                style: const TextStyle(
                     fontFamily: SystemConfig.sourceSansItalic,
                     fontStyle: FontStyle.italic,
                     color: Colors.black)),
             TextSpan(
                 text: " ”   ",
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 20,
                     fontStyle: FontStyle.italic,
                     color: Colors.black))
